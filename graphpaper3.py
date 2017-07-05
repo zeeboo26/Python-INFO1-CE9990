@@ -1,9 +1,9 @@
-'''
+"""
 graphpaper.py
  
 This program prints out a closed grid based on user input.
  
-'''
+"""
 
 import sys
 
