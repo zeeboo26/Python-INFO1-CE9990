@@ -44,5 +44,6 @@ for i in range(0,13):
     for j in range (i):
         print(n[i-1], lyrics[i-1])
         i -=1                                   #print lines in inverse order from i to 0
-       
+    print()                                     #to separate the paragraphs
+    
 sys.exit(0)
