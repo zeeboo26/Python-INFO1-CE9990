@@ -38,12 +38,10 @@ n = [
     'Thirteen'
     ]
      
-for i in range(0,13):
-    print ("Who knows", n[i],"?\nI know", n[i]) #print the first lines of the song.
-    print(n[i], lyrics[i])                      #print n associated to its lyrics
-    for j in range (i):
-        print(n[i-1], lyrics[i-1])
-        i -=1                                   #print lines in inverse order from i to 0
+for i in range(len(lyrics)):
+    print ("Who knows ", n[i],"?\nI know ", n[i],'.\n', sep ="", end ="")
+    for j in range(i, 0, -1):
+        print(n[j], lyrics[j])                  #print lines in inverse order from i to 0
     print()                                     #to separate the paragraphs
     
 sys.exit(0)
