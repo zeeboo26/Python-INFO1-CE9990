@@ -31,13 +31,13 @@ except ValueError:
 sum = f + g 
 if sum >= 20 and h < 8:
 	print("OMG ", sum, " times, you man have to take it easy. You need to reduce your smoking and drinking if you want to keep your cognitive abilities. And you need to hit the gym please.", sep = "")
-	if sum >= 20 and h >= 8:
-		print("Man you have to take it easy on the bad stuff, ok it's great that you work out a lot BUT you still need to act healthy.");
-		if sum < 20 and h < 8:
-			print("Ok,", sum , ",if this is closer to 0 and 10 you are in a good range for no future dementia , if closer to 20 be careful.")
-			print(" About the gym, it would be good for you to hit it sometimes.")
-				if sum < 20 and h >= 8:
-				print("Bravo on the work out! You are on the right track to keep all your cognitive functions!")
+if sum >= 20 and h >= 8:
+	print("Man you have to take it easy on the bad stuff, ok it's great that you work out a lot BUT you still need to act healthy.");
+if sum < 20 and h < 8:
+	print("Ok,", sum , ",if this is closer to 0 and 10 you are in a good range for no future dementia , if closer to 20 be careful.")
+	print(" About the gym, it would be good for you to hit it sometimes.")
+if sum < 20 and h >= 8:
+	print("Bravo on the work out! You are on the right track to keep all your cognitive functions!")
 
 print()
 print("Thank you for using and good luck :)")
