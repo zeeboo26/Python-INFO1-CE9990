@@ -21,13 +21,15 @@ except urllib.error.URLError as error:
 lines = inputFile.readlines()
 inputFile.close()
 
-#sort lines in order of decreasing length
+try:
+    stringOfCharacters = sequenceOfBytes.decode("utf-8")
+except UnicodeError as unicodeError:
+    print(unicodeError)
+    sys.exit(1)
+    
+lines = stringOfCharacters.splitlines() #lines is a list of strings
+#sort lines in order of decreasing number of characters
 lines.sort(key = len, reverse = True)
 
- # use decode to onverts a sequence of bytes into a string of characters. 
 for line in lines:
-    # s = line.decode("utf-8")
-    # print(s, end = "")
-    print(line.decode("utf-8"), end = "") 
-
-sys.exit(0)
+print(line)
