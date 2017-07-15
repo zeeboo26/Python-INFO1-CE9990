@@ -32,4 +32,6 @@ lines = stringOfCharacters.splitlines() #lines is a list of strings
 lines.sort(key = len, reverse = True)
 
 for line in lines:
-print(line)
+    print(line)
+
+sys.exit(0)
