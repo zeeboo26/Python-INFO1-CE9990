@@ -18,7 +18,7 @@ except urllib.error.URLError as error:
     sys.exit(1)
     
 # read the filename
-lines = inputFile.readlines()
+sequenceOfBytes = inputFile.read() #Input the entire file.
 inputFile.close()
 
 try:
