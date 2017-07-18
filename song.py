@@ -39,7 +39,7 @@ n = [
     ]
      
 for i in range(len(lyrics)):
-    print ("Who knows ", n[i],"?, sep ="")
+    print ("Who knows ", n[i],"?", sep ="")
     print("I know ", n[i],"." sep ="")
     for j in range(i, 0, -1):
         print(n[j], lyrics[j])                  #print lines in inverse order from i to 0
