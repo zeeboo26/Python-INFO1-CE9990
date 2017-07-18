@@ -26,7 +26,7 @@ Phone number:     {}
 
 first = True
 for line in lines:
-    if first == False:
+    if not first:
         print(f.format(line[0], line[1], line[6])) #names and phone numbers
     first = False
         
