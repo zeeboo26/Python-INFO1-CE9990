@@ -23,8 +23,12 @@ f = """\
 Institution Name: {}: {}
 Phone number:     {}
 """
+
+first = True
 for line in lines:
-        print(f.format(line[0], line[1], line[6])) #names and phone number
+    if first == False:
+        print(f.format(line[0], line[1], line[6])) #names and phone numbers
+    first = False
         
 csvfile.close()
 sys.exit(0)
