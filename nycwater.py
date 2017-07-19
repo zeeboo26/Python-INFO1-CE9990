@@ -39,7 +39,7 @@ Year = input('Enter a year between 1979 and 2016: ')
 
 for i in range(len(listOfYears)):
     if Year == listOfYears[i]:
-        print ('In', Year , 'a new yorker used', waterUses[i], 'gallon of water.')
+        print ('In', Year , 'a new yorker used', waterUses[i], 'gallons of water PER DAY.')
     
 infile.close()
 sys.exit(0)
