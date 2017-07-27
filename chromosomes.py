@@ -56,7 +56,7 @@ while True:
     print()
     if definition[2] < 95:
         print("Scientists need to do better research on chromosome ",chromosome,".", sep = "")
-    if definition[2] <= 70:
-        print("This is one of the chromosomes we know the less about.")
-        print()
+        if definition[2] <= 70:
+            print("This is one of the chromosomes we know the less about.")
+            print()
 sys.exit(0)
