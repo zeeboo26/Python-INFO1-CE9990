@@ -21,8 +21,9 @@ label1 = Label (root, text = "Temperature Converter\n Fahrenheit to Celsius",
 
 label1.pack()
 
-slider = Scale(root, variable = var, from_= -50, to= 320, length = 450
-               , orient = HORIZONTAL)
+slider = Scale(root, variable = var, from_= -50, to= 320, length = 450,
+               orient = HORIZONTAL)
+
 slider.pack(anchor = CENTER)
 
 label2 = Label (root, padx = 14, pady = 14, bd=14, fg ="#000000", font =('arial',26,'bold'),
@@ -36,5 +37,5 @@ label3 = Label (root, text = " ")
 label3.pack()
 button = Button(root, text= "Go conversion", padx = 16, pady = 16, bd=16, width=10,
                  font =('arial',20,'italic'), command = Temperature_conversion)
-button.pack(anchor= CENTER)
+button.pack(anchor= CENTER) #place button in the center
 root.mainloop()
