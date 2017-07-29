@@ -1,7 +1,7 @@
 """
 json.py
 
-This programs downloads information about date and time from a website into
+This programs downloads information from a website and converts it into a dictionnary in
 JSON format.
 See:  http://date.jsontest.com
 """
