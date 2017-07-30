@@ -5,7 +5,7 @@ This programs downloads information from a website and converts it into a dictio
 JSON format.
 See:  http://date.jsontest.com
 """
-
+import datetime 
 import sys
 import urllib.request
 import json
@@ -35,7 +35,13 @@ try:
 except json.JSONDecodeError as jSONDecodeError:
     print(jSONDecodeError)
     sys.exit(1)
+    
+millisec = int(dictionary["milliseconds_since_epoch"])
+seconds = millisec/1000
 
-print(dictionary)
+localDateAndTime = datetime.datetime.fromtimestamp(seconds)
+print("Eastern Daylight Time:")
+print(localDateAndTime.strftime("%c"))
 print()
+
 sys.exit(0)
