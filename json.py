@@ -36,7 +36,7 @@ except json.JSONDecodeError as jSONDecodeError:
     print(jSONDecodeError)
     sys.exit(1)
     
-millisec = int(dictionary["milliseconds_since_epoch"])
+millisec = dictionary["milliseconds_since_epoch"]
 seconds = millisec/1000
 
 localDateAndTime = datetime.datetime.fromtimestamp(seconds)
