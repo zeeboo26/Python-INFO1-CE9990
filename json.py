@@ -36,12 +36,23 @@ except json.JSONDecodeError as jSONDecodeError:
     print(jSONDecodeError)
     sys.exit(1)
     
-millisec = dictionary["milliseconds_since_epoch"]
-seconds = millisec/1000
+for key in sorted(dictionary):
+    value = dictionary[key]
+    print("{:25} {:<14}".format(key + ":", value), end = "")
 
-localDateAndTime = datetime.datetime.fromtimestamp(seconds)
-print("Eastern Daylight Time:")
-print(localDateAndTime.strftime("%c"))
-print()
+    #Two of the keys require additional printing:
+    if key == "milliseconds_since_epoch":
+        seconds = value / 1000
+        d = datetime.datetime.fromtimestamp(seconds)
+        print(d.strftime("(local %a %b %d %I:%M:%S.%f %Y)"), end = "")
+    elif key == "time":
+        s = dictionary["date"] + " " + value
+        d = datetime.datetime.strptime(s, "%m-%d-%Y %I:%M:%S %p")
+        d = d.replace(tzinfo = datetime.timezone.utc)
+        d = d.astimezone(tz = None)
+        print(d.strftime("(local %c)"), end = "")
+
+    print()
+
 
 sys.exit(0)
