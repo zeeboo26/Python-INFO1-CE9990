@@ -27,7 +27,6 @@ except UnicodeError as unicodeError:
     print(unicodeError)
     sys.exit(1)
 
-print(s)
 print()
 
 try:
@@ -44,13 +43,13 @@ for key in sorted(dictionary):
     if key == "milliseconds_since_epoch":
         seconds = value / 1000
         d = datetime.datetime.fromtimestamp(seconds)
-        print(d.strftime("(local %a %b %d %I:%M:%S.%f %Y)"), end = "")
+        print(d.strftime("(local %a %b %d %I:%M:%S.%f %p %Y)"), end = "")
     elif key == "time":
         s = dictionary["date"] + " " + value
         d = datetime.datetime.strptime(s, "%m-%d-%Y %I:%M:%S %p")
         d = d.replace(tzinfo = datetime.timezone.utc)
         d = d.astimezone(tz = None)
-        print(d.strftime("(local %c)"), end = "")
+        print(d.strftime("(local %a %b %d %I:%M:%S %p %Y)"), end = "")
 
     print()
 
