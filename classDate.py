@@ -1,7 +1,7 @@
 """
 classDate.py
 Create a class named Date and call one of its class methods (monthsInYear).
-(Added some instance methods to class Date for HW purposes)
+(Added some instance methods and added twelve class attributes to class Date for HW purposes)
 Then create an object named d of class Date and call its instance methods.
 """
 
