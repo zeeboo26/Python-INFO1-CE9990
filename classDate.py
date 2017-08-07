@@ -99,7 +99,7 @@ class Date(object):
         if self.day > 1:      
             self.day -=1
         else:
-            self.day = Date.lengths[self.month]:  #Go to the last day of the month
+            self.day = Date.lengths[self.month]  #Go to the last day of the month
             if self.month < Date.monthsInYear(): 
                 self.month -=1
             else:
@@ -107,7 +107,7 @@ class Date(object):
                 self.year -=1
 
 
-    def preDays(self, n):
+    def prevDays(self, n):
         "Move myself n days into the past."
         assert isinstance(n, int) and n >= 0
         for i in range(n):
@@ -118,7 +118,7 @@ class Date(object):
         "Return the number of months in a year.  This function is selfless."
         return len(Date.lengths) - 1;
 
-     def __sub__(self, other):
+    def __sub__(self, other):
         """
         Return the distance in days between the two Date objects.
         The return value is positive is self is later than other,
@@ -136,10 +136,11 @@ class Date(object):
     #The definition of class Date ends here.
 
 
-print("months in year =", d.monthsInYear())
+
 d = Date(Date.december, 31, 2017)        #Call the instance method in line 32.
 print("type(d) =", type(d))
 print()
+print("months in year =", d.monthsInYear())
 
 #These three statements do the same thing:
 print("d =", d)
@@ -157,4 +158,24 @@ d.nextDay()                    #Call the instance method in line 62.
 print(d, "is the next day.")
 d.nextDays(7)                  #Call the instance method in line 74.
 print(d, "is a week after that.")
+
+p = Date(Date.october, 10, 2017)
+print("type(p) =", type(p))
+print()
+
+print("month =", p.getMonth()) #Call the instance method in line 46.
+print("day =", p.getDay())     #Call the instance method in line 50.
+print("year =", p.getYear())   #Call the instance method in line 42.
+print()
+
+print("{} is day number {} of the year {}.".format(p, p.dayOfYear(), p.getYear()))
+p.prevDay()
+print(p, "is the previous day.")
+p.prevDays(7)
+print(p, "is a week before that.")
+print()
+
+print("There are", d-p, "days between", p , "and", d)
+
 sys.exit(0)
+      
