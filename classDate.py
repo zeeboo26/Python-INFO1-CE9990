@@ -99,7 +99,7 @@ class Date(object):
         if self.day > 1:      
             self.day -=1
         else:
-            self.day = Date.lengths[self.month]  #Go to the last day of the month
+            self.day = Date.lengths[self.month-1]   #Go to last day of month Not counting None
             if self.month < Date.monthsInYear(): 
                 self.month -=1
             else:
