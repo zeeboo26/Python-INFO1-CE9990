@@ -132,7 +132,7 @@ class Date(object):
         "Return True if self is earlier than the other Date, False otherwise."
         return self - other < 0   #means return __sub__(self, other) < 0
     
-    def __ht__(self, other):
+    def __gt__(self, other):
         "Return True if self is earlier than the other Date, False otherwise."
         return self - other > 0   #means return __sub__(self, other) > 0
 
@@ -180,8 +180,9 @@ print()
 
 print("There are", d-p, "days between", p , "and", d)
 print()
-print("Is", d, "before", p, "?",d.__lt__(p))    #Call the instance method in line 131
-print("Is", d, "after", p, "?",d.__ht__(p))     #Call the instance method in line 135
+
+print("Is", d, "before", p, "?", d < p)   #d<p means __lt__(d, p),      Call the instance method in line 131
+print("Is", d, "after", p, "?", d > p)   #d>p means __gt__(d, p)     #Call the instance method in line 135
     
 print()
 print("They are",sum(Date.lengths[1:]), "days in a year.")
