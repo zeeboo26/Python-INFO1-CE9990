@@ -175,7 +175,16 @@ p.prevDays(7)
 print(p, "is a week before that.")
 print()
 
-print("There are", d-p, "days between", p , "and", d)
+if d < p:
+    print(d, "is earlier than", p, ".")
+    print("There are", p-d, "days between", p , "and", d)
+else:
+    print(d, "is after or same day as", p)
+    
+print()
+print("They are",sum(Date.lengths[1:]), "days in a year.")
+print("They are", len(Date.lengths) - 1, "months in a year.")
 
+sys.exit(0)
 sys.exit(0)
       
