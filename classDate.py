@@ -27,7 +27,7 @@ class Date(object):
 
     
     lengths = [
-        31, #December
+        None,
         31, #January
         28, #February
         31, #March
@@ -105,7 +105,7 @@ class Date(object):
             else:
                 self.month = 12    #Go back to the last month of the year
                 self.year -=1
-
+            self.day = Date.lengths[self.month] #Go to last day of month
 
     def prevDays(self, n):
         "Move myself n days into the past."
