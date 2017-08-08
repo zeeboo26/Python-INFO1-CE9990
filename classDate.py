@@ -131,13 +131,16 @@ class Date(object):
     def __lt__(self, other):
         "Return True if self is earlier than the other Date, False otherwise."
         return self - other < 0   #means return __sub__(self, other) < 0
-
+    
+    def __ht__(self, other):
+        "Return True if self is earlier than the other Date, False otherwise."
+        return self - other > 0   #means return __sub__(self, other) > 0
 
     #The definition of class Date ends here.
 
 
 
-d = Date(Date.december, 31, 2017)        #Call the instance method in line 32.
+d = Date(Date.december, 31, 2017)        #Call the instance method in line 45.
 print("type(d) =", type(d))
 print()
 print("months in year =", d.monthsInYear())
@@ -145,27 +148,27 @@ print("months in year =", d.monthsInYear())
 #These three statements do the same thing:
 print("d =", d)
 print("d =", str(d))
-print("d =", d.__str__())      #Call the instance method in line 54.
+print("d =", d.__str__())      #Call the instance method in line 71.
 print()
 
-print("month =", d.getMonth()) #Call the instance method in line 46.
-print("day =", d.getDay())     #Call the instance method in line 50.
-print("year =", d.getYear())   #Call the instance method in line 42.
+print("month =", d.getMonth()) #Call the instance method in line 63.
+print("day =", d.getDay())     #Call the instance method in line 67.
+print("year =", d.getYear())   #Call the instance method in line 59.
 print()
 
 print("{} is day number {} of the year {}.".format(d, d.dayOfYear(), d.getYear()))
-d.nextDay()                    #Call the instance method in line 62.
+d.nextDay()                    #Call the instance method nextDay.
 print(d, "is the next day.")
-d.nextDays(7)                  #Call the instance method in line 74.
+d.nextDays(7)                  #Call the instance method nextDays.
 print(d, "is a week after that.")
 
 p = Date(Date.october, 10, 2017)
 print("type(p) =", type(p))
 print()
 
-print("month =", p.getMonth()) #Call the instance method in line 46.
-print("day =", p.getDay())     #Call the instance method in line 50.
-print("year =", p.getYear())   #Call the instance method in line 42.
+print("month =", p.getMonth()) #Call the instance method in line 63.
+print("day =", p.getDay())     #Call the instance method in line 67.
+print("year =", p.getYear())   #Call the instance method in line 59.
 print()
 
 print("{} is day number {} of the year {}.".format(p, p.dayOfYear(), p.getYear()))
@@ -175,16 +178,17 @@ p.prevDays(7)
 print(p, "is a week before that.")
 print()
 
-if d < p:
-    print(d, "is earlier than", p, ".")
-    print("There are", p-d, "days between", p , "and", d)
-else:
-    print(d, "is after or same day as", p)
+print("There are", d-p, "days between", p , "and", d)
+print()
+print("Is", d, "before", p, "?",d.__lt__(p))    #Call the instance method in line 131
+print("Is", d, "after", p, "?",d.__ht__(p))     #Call the instance method in line 135
     
 print()
 print("They are",sum(Date.lengths[1:]), "days in a year.")
 print("They are", len(Date.lengths) - 1, "months in a year.")
 
 sys.exit(0)
+
+      
 
       
