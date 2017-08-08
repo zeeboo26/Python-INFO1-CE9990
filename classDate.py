@@ -185,8 +185,8 @@ print("Is", d, "before", p, "?", d < p)   #d<p means __lt__(d, p),      Call the
 print("Is", d, "after", p, "?", d > p)   #d>p means __gt__(d, p)     #Call the instance method in line 135
     
 print()
-print("They are",sum(Date.lengths[1:]), "days in a year.")
-print("They are", len(Date.lengths) - 1, "months in a year.")
+print("There are",sum(Date.lengths[1:]), "days in a year.")
+print("There are", len(Date.lengths) - 1, "months in a year.")
 
 sys.exit(0)
 
