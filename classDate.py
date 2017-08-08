@@ -132,7 +132,7 @@ class Date(object):
         return self - other < 0   #means return __sub__(self, other) < 0
     
     def __gt__(self, other):
-        "Return True if self is earlier than the other Date, False otherwise."
+        "Return True if the other date earlier than self, False otherwise."
         return self - other > 0   #means return __sub__(self, other) > 0
 
     #The definition of class Date ends here.
