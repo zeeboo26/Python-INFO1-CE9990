@@ -41,7 +41,7 @@ class Location(object):
             longitudeDirection = "W"
 
         return "{}\u00B0{} {}\u00B0{}".\
-                format(abs(self.latitude), latitudeDirection,\
+                format(abs(self.latitude), latitudeDirection,
                        abs(self.longitude), longitudeDirection)
 
     def getLatitude(self):
@@ -49,6 +49,7 @@ class Location(object):
         return self.latitude
     
     def setLatitude(self, newLatitude):
+        "Set my latitude to a new value."
         if not (isinstance (newLatitude, int) or isinstance(newLatitude, float)):
             raise TypeError("Latitude must be int or float.")
         if abs(newLatitude) > 90:
@@ -60,6 +61,7 @@ class Location(object):
         return self.longitude
 
     def setLongitude(self, newLongitude):
+        "Set my longitude to a new value."
         if not (isinstance (newLongitude, int) or isinstance(newLongitude, float)):
             raise TypeError("Longitude must be int or float.")
         if abs(newLongitude > 180):
@@ -105,7 +107,7 @@ class Location(object):
                 except KeyError:
                     return 0
                 try:
-                    return int(s)
+                    return int(component["long_name"])
                 except ValueError:
                     return 0
 
@@ -117,10 +119,9 @@ if __name__ == '__main__':
     loc = Location(-34.074678, 120.46583998282)
     print("The zipcode of {} is {}.".format(loc, loc.getZipcode()))
 
-    print("\nYour turn to chose a latitude and a longitude...\n")
+    print("\nYour turn to chose a latitude and a longitude:\n")
     loc.setLatitude = float(input("Please enter a latitude between -90 and 90 inclusive: "))
     loc.setLongitude = float(input("Please enter a longitude between -180 and 180 inclusive: "))
     loc = Location(loc.setLatitude, loc.setLongitude)
     print("The zipcode of {} is {}.".format(loc, loc.getZipcode()))
-
-sys.exit(0)
+    sys.exit(0)
