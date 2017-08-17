@@ -93,33 +93,37 @@ class Location(object):
             print(jSONDecodeError)
             sys.exit(1)
 
-        results = dictionary["results"]                        #results is a list of dictionaries
-        if len(results) == 0:
-            return 0
+        if "results" in dictionary:                             #check if dictionary has no results key
+            results = dictionary["results"]                     #results is a list of dictionaries
+            if len(results) == 0:
+                return 0
+        else:
+            print("dictionary has no results key")
+            sys.exit(1)
 
-        firstResult = results[0]                               #firstResult is a dictionary
-        address_components = firstResult["address_components"] #address_components is a list of dictionaries
-
-        for component in address_components:                   #component is a dictionary
-            if "postal_code" in component["types"]:            #component["types"] is a list of strings
-                try:    
-                    return int(component["long_name"])    #component["long_name"] is a string that looks like a zipcode
-                except KeyError:
-                    return 0
-                try:
-                    return int(component["long_name"])
-                except ValueError:
-                    return 0
-
+        firstResult = results[0]  
+        if "address_components" not in firstResult:           #check if firstResult has no address_components key
+            print("firstResult has no Address_components key")
+            sys.exit(1)
+        else:
+            address_components = firstResult["address_components"] #address_components is a list of dictionarie
+            for component in address_components:                   #component is a dictionary
+                if "postal_code" in component["types"]:            #component["types"] is a list of string
+                    if "long_name" in component:                   #check if component has no long name key
+                        return component["long_name"]                   #component["long_name"] is a string that looks like a zipcode
+                    else:
+                        print("Component does not have a long_name")
+                        sys.exit(1)
         return 0
+
 
     #The definition of classLocation ends here.
 
 if __name__ == '__main__':
     loc = Location(-34.074678, 120.46583998282)
     print("The zipcode of {} is {}.".format(loc, loc.getZipcode()))
-
-    print("\nYour turn to chose a latitude and a longitude:\n")
+    print()
+    print("Your turn to chose a latitude and a longitude:\n")
     loc.setLatitude = float(input("Please enter a latitude between -90 and 90 inclusive: "))
     loc.setLongitude = float(input("Please enter a longitude between -180 and 180 inclusive: "))
     loc = Location(loc.setLatitude, loc.setLongitude)
